@@ -1,0 +1,126 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>Home page</title>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">Registration</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" fId="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+					</a></li>
+				<li class="nav-item active"><a class="nav-link" href="">Edit
+						Form</a></li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Navbar -->
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="text-center text-primary">Edit User</h4>
+
+						<form th:action="@{/update}" method="post" th:object="${user}">
+
+							<input type="hidden" th:value="${user.userId}" name="userId">
+
+
+
+
+
+
+
+							<div class="form-group">
+								<label> Full Name</label> <input type="text" class="form-control" name="fullName"
+									maxlength="48" size="48" minlength="3" th:value="${user.fullName}">
+							</div>
+
+
+							<!--	<div class="form-group">
+								<label>Enter Address</label> <input type="text"
+									class="form-control" name="address">
+							</div>-->
+
+							
+
+							<div class="form-group">
+								<label>Enter Email</label> <input type="text" class="form-control" name="emailId"
+									th:value="${user.emailId}">
+							</div>
+
+							<div class="form-group">
+								<label>Enter Phone No</label>
+								<input type="tel" class="form-control" name="phoneNumber" size="10" pattern="[0-9]{10}"
+									title="Please enter a 10-digit phone number" required th:value="${user.phoneNumber}">
+							</div>
+
+							<div class="form-group">
+								<label> Password</label> <input type="text" class="form-control" name="password"
+									maxlength="48" size="48" minlength="3" required="required" th:value="${user.password}">
+							</div>
+
+
+							<div class="form-group">
+								<label> ConfirmPassword</label> <input type="text" class="form-control"
+									name="confirmPassword" maxlength="48" size="48" minlength="3" required="required"th:value="${user.confirmPassword}">
+							</div>
+							<div class="form-group">
+								<label> Select Gender</label> <br>
+								<select name="gender" required="required" id="mail"th:value="${user.gender}">
+									<option value="Hydrabad">mail</option>
+									<option value="pune">femail</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label> EmergencyContectNumber</label> <input type="text" class="form-control"
+									name="emergencyContectNumber" maxlength="48" size="48" minlength="3"
+									required="required"th:value="${user.emergencyContectNumber}">
+							</div>
+
+
+
+							<button class="btn btn-primary btn-block">Submit</button>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+	
+	
+	
+</body>
+
+</html>
